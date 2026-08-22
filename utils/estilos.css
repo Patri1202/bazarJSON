@@ -1,0 +1,255 @@
+/* BASE */
+
+body {
+    background-color: #f3f3f3;
+    color: #333;
+    font-family: 'Outfit', sans-serif;
+    margin: 0; /* Se quitan márgenes por defecto */
+    padding: 20px; /* Espaciado interior */
+    -webkit-font-smoothing: antialiased; /* Mejora la nitidez del texto */
+}
+
+/* Contenedor principal de la tienda */
+#contenedor-principal {
+    max-width: 1300px; /* Ancho máximo */
+    margin: 0 auto; /* Centrado horizontal */
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* CABECERA */
+.titulo-tienda {
+    text-align: center;
+    color: #232f3e;
+    font-size: 2.5rem; /* Tamaño grande del texto */
+    margin-bottom: 30px; /* Espacio debajo del título */
+    border-bottom: 3px solid #7c3aed; /* Línea de debajo del título */
+    padding-bottom: 10px; /* Espacio entre el texto y la línea */
+}
+
+/* FILTROS */
+#filtros {
+    background: #f3f3f3;
+    padding: 20px; /* Espacio interior */
+    display: flex; /* flexbox */
+    flex-wrap: wrap; /* Permite que bajen de línea en pantallas pequeñas */
+    gap: 20px; /* Espacio entre elementos */
+    border-radius: 8px;
+    margin-bottom: 30px; /* Espacio inferior */
+    justify-content: center; /* Se centra horizontalmente */
+    align-items: flex-end; /* Se alinean abajo los elementos */
+    border: 1px solid #ddd;
+}
+
+.campo-filtro {
+    display: flex; /* Flexbox */
+    flex-direction: column; /* Se coloca el label encima del input */
+    gap: 5px; /* Espacio entre label e input */
+    font-weight: bold; /* Texto en negrita */
+    color: #555;
+}
+
+#btn-filtrar {
+   background-color: #7c3aed;
+    border: 1px solid #6d28d9;
+    padding: 10px 20px; /* Espacio interno */
+    color: white;
+    font-weight: bold;
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    border-radius: 4px; /* Bordes redondeados */
+    transition: background 0.2s; /* Animación */
+}
+
+/* Efecto al pasar el ratón */
+#btn-filtrar:hover {
+    background-color: #6d28d9;
+}
+
+#btn-limpiar {
+    background-color: #e2e8f0;
+    border: 1px solid #cbd5e1;
+    padding: 10px 20px;
+    color: #475569;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s; /* Animación */
+}
+
+#btn-limpiar:hover {
+    background-color: #cbd5e1;
+    color: #1e293b;
+}
+
+/* CUERPO */
+#cuerpo-tienda {
+      display: flex; /* Flexbox para ponerlos en fila */
+    align-items: flex-start; /* Alineados arriba */
+    gap: 25px; /* Espacio entre productos y carrito */
+    margin-top: 20px;
+}
+
+#resultados {
+       flex: 3; /* Ocupa más espacio que el carrito */
+    display: grid; /* Grid para organizar las tarjetas */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));  /* Se crean columnas automáticas de mínimo 250px */
+    gap: 20px;
+}
+
+/* TARJETAS */
+.producto-card {
+    background: white;
+    border: 1px solid #e7e7e7;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s, box-shadow 0.2s; /* Animación */
+}
+
+.producto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    border-color: #7c3aed;
+}
+
+.producto-card img {
+  width: 100%; /* Ocupa todo el ancho */
+    height: 180px; /* Altura fija */
+    object-fit: contain; /* Ajusta la imagen sin deformarla */
+    margin-bottom: 15px;
+}
+
+.marca-texto {
+    font-size: 0.75rem;
+    color: #9333ea;
+    text-transform: uppercase; /* Mayúsculas */
+    font-weight: 700;
+    margin: 5px 0 0 0;
+    letter-spacing: 1px; /* Espaciado entre letras */
+}
+
+.producto-card h3 {
+    font-size: 1.15rem;
+    color: #232f3e; 
+    margin: 5px 0 10px 0;
+}
+
+/* Botón Añadir */
+.producto-card button {
+    background-color: #f5f3ff;
+    border: 1px solid #ddd6fe;
+    color: #7c3aed;
+    padding: 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.2s;
+}
+
+.producto-card button:hover {
+    background-color: #7c3aed;
+    color: white;
+    border-color: #6d28d9;
+}
+
+/* CARRITO */
+#zona-carrito {
+    flex: 1; /* Ocupa menos espacio que productos */
+    background: #ffffff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    position: sticky; /* Se queda fijo al hacer scroll */
+    top: 20px; /* Separación desde arriba */
+    min-width: 300px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.item-carrito {
+    border-bottom: 1px solid #eee;
+    padding: 12px 0;
+    display: grid;
+    grid-template-columns: 1fr auto 75px;
+    align-items: center;
+    gap: 10px;
+}
+
+.nombre-item {
+    white-space: normal;
+    word-wrap: break-word;
+    font-size: 0.9rem;
+}
+
+.controles-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f5f3ff;
+    padding: 3px 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd6fe;
+}
+
+.controles-cantidad button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: #7c3aed;
+    font-size: 1.1rem;
+}
+
+.subtotal {
+    text-align: right;
+    font-weight: bold;
+}
+
+/* TOTAL Y BOTÓN COMPRAR */
+#info-total {
+    margin-top: 5px;
+    margin-bottom: 25px;
+    font-weight: bold;
+    text-align: right;
+}
+
+#precio-total {
+    color: #7c3aed;
+    font-size: 1.3rem;
+}
+
+#btn-comprar {
+    width: 100%;
+    background-color: #7c3aed;
+    border: 1px solid #6d28d9;
+    color: white;
+    padding: 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#btn-comprar:hover {
+    background-color: #6d28d9;
+}
+
+.carrito-vacio {
+    text-align: center;
+    color: #7c3aed;
+    padding: 40px 10px;
+    font-size: 0.95rem;
+    font-style: italic;
+    opacity: 0.7;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) { /* Cuando la pantalla es menor a 850px */
+    #cuerpo-tienda { flex-direction: column; }  /* Productos y carrito se ponen uno debajo del otro */
+    #zona-carrito { width: 100%; position: static; min-width: auto; }  /* El carrito ocupa todo el ancho */
+}

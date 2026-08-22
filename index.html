@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Bazar de JSON - Catálogo Interactivo</title>
+    
+    <!-- Meta descripción básica para el portafolio -->
+    <meta name="description" content="Catálogo interactivo con filtros dinámicos y carrito de compras en tiempo real. Desarrollado con HTML, CSS y JavaScript Vanilla.">
+    
+    <!-- Favicon sencillo usando un emoji para evitar errores 404 en consola -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛍️</text></svg>">
+
+    <!-- Enlace a la librería animate.css para animaciones visuales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <!-- Enlace a la fuente Outfit desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- Estilos locales de la aplicación -->
+    <link rel="stylesheet" href="./utils/estilos.css">
+
+    <!-- Lógica JS cargada de forma asíncrona no bloqueante -->
+    <script defer src="./utils/index.js"></script>
+</head>
+
+<body>
+    <!-- Contenedor principal de la tienda -->
+    <div id="contenedor-principal">
+
+        <!-- Cabecera con el título del proyecto -->
+        <header class="cabecera-principal">
+            <h1 class="titulo-tienda">EL BAZAR DE JSON</h1>
+        </header>
+
+        <!-- Sección de filtros de búsqueda -->
+        <section id="filtros" aria-label="Filtros de búsqueda">
+            <!-- Filtro por precio mínimo -->
+            <div class="campo-filtro">
+                <label for="precio-min">Precio Mínimo:</label>
+                <input type="number" id="precio-min" placeholder="Ej: 8">
+            </div>
+            
+            <!-- Filtro por categoría -->
+            <div class="campo-filtro">
+                <label for="select-categoria">Categoría:</label>
+                <select id="select-categoria">
+                    <option value="all">Todas</option>
+                    <option value="beauty">Belleza</option>
+                    <option value="fragrances">Fragancias</option>
+                    <option value="furniture">Muebles</option>
+                    <option value="groceries">Alimentación</option>
+                </select>
+            </div>
+
+            <!-- Filtro por marca -->
+            <div class="campo-filtro">
+                <label for="input-marca">Marca:</label>
+                <input type="text" id="input-marca" placeholder="Ej: Apple">
+            </div>
+            
+            <!-- Botones de acción -->
+            <button id="btn-filtrar">FILTRAR PRODUCTOS</button>
+            <button id="btn-limpiar" type="button">LIMPIAR</button>
+        </section>
+
+        <!-- Cuerpo principal de la tienda -->
+        <main id="cuerpo-tienda">
+
+            <!-- Sección donde se muestran los productos del catálogo -->
+            <section id="productos-seccion" aria-label="Catálogo de Productos" style="flex: 3;">
+                <div id="resultados"></div>
+            </section>
+
+            <!-- Barra lateral con el carrito de la compra -->
+            <aside id="zona-carrito" aria-label="Carrito de compras">
+                <h2>Tu Compra</h2>
+                
+                <!-- Lista de productos añadidos -->
+                <div id="lista-carrito"></div>
+                <hr>
+                
+                <!-- Precio total acumulado -->
+                <div id="info-total">
+                    <p>TOTAL: <span id="precio-total">0</span>€</p>
+                </div>
+
+                <!-- Botón de finalizar pedido -->
+                <button id="btn-comprar">REALIZAR PEDIDO</button>
+            </aside>
+        </main>
+    </div>
+
+    <!-- Librería SweetAlert2 para alertas del sistema -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
